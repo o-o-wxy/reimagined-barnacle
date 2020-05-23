@@ -4,11 +4,31 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+		<meta name="referrer" content="no-referrer">
+		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
 
 		<title>搜索</title>
+		
+		<style type="text/css">
+			#searchli li {
+				cursor: pointer;
+			}
+		
+			#searchli li:hover {
+				background: #00b51d;
+				color: white;
+			}
+		
+			.hidden {
+				display: none;
+			}
+		
+			.show {
+				display: block;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- 导航栏 -->
@@ -32,89 +52,26 @@
 					<img class="align-self-center mx-auto" style="width:250px;" src="imgs/name.png">
 				</div>
 				<form class="form-inline row center-block w-50 mx-auto">
-					<input class="form-control mr-sm-2 mx-auto" style="width: 450px;" type="search" placeholder="请输入关键词" aria-label="Search">
-					<a href="result.html" target="_self" class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;" type="submit">搜索</a>
+					<input id="searchInput" class="form-control mr-sm-2 mx-auto" style="width: 450px;height: 50px;padding-left: 20px;" placeholder="请输入关键词">
+					<button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;height: 50px;" type="button" onclick="searchKey()">搜索</button>
+									
+					<ul id="searchli" class="list-group h-100 hidden" style="width: 450px; margin-left: 7px;">
+						<li class="list-group-item">推荐关键词1</li>
+						<li class="list-group-item">推荐关键词2</li>
+						<li class="list-group-item">推荐关键词3</li>
+					</ul>
 				</form>
 			</div>
 			<!-- 搜索结果 -->
 			<div id="main" class="container mt-5 mb-5">
-				<div class="row p-1" style="border:1px solid #C6C8CA;">
-					<div class="media m-3">
-						<img class="media-left media-middle media-bottom" style="width: 180px; height: 250px;" src="imgs/book.jpg" width="100" />
-						<div class="media-body ml-5">
-							<ul class="list-unstyled" style="font-size:18px;line-height: 2em;">
-								<li>书名：<span>这辈子</span></li>
-								<li>作者：<span>高彩云</span></li>
-								<li><p class="card-text" style="display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow: hidden;"> <span>简介：</span>人活百年，看到的世界有何不同？
-										本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-								</li>
-								<li>
-									<div class="card-text mt-2" style="font-size:20px; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; overflow: hidden;">
-										<span class="badge badge-info mr-3">口述史</span>
-										<span class="badge badge-info mr-3">历史</span>
-										<span class="badge badge-info mr-3">百岁老人</span>
-										<span class="badge badge-info mr-3">高彩云</span>
-										<span class="badge badge-info mr-3">生命史</span>
-									</div>
-								</li>
-								<li><a href="#" class="btn btn-primary mt-4">查看详情</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row p-1" style="border:1px solid #C6C8CA;">
-					<div class="media m-3">
-						<img class="media-left media-middle media-bottom" style="width: 180px; height: 250px;" src="imgs/book.jpg" width="100" />
-						<div class="media-body ml-5">
-							<ul class="list-unstyled" style="font-size:18px;line-height: 2em;">
-								<li>书名：<span>这辈子</span></li>
-								<li>作者：<span>高彩云</span></li>
-								<li><p class="card-text" style="display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow: hidden;"> <span>简介：</span>人活百年，看到的世界有何不同？
-										本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-								</li>
-								<li>
-									<div class="card-text mt-2" style="font-size:20px; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; overflow: hidden;">
-										<span class="badge badge-info mr-3">口述史</span>
-										<span class="badge badge-info mr-3">历史</span>
-										<span class="badge badge-info mr-3">百岁老人</span>
-										<span class="badge badge-info mr-3">高彩云</span>
-										<span class="badge badge-info mr-3">生命史</span>
-									</div>
-								</li>
-								<li><a href="#" class="btn btn-primary mt-4">查看详情</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row p-1" style="border:1px solid #C6C8CA;">
-					<div class="media m-3">
-						<img class="media-left media-middle media-bottom" style="width: 180px; height: 250px;" src="imgs/book.jpg" width="100" />
-						<div class="media-body ml-5">
-							<ul class="list-unstyled" style="font-size:18px;line-height: 2em;">
-								<li>书名：<span>这辈子</span></li>
-								<li>作者：<span>高彩云</span></li>
-								<li><p class="card-text" style="display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow: hidden;"> <span>简介：</span>人活百年，看到的世界有何不同？
-										本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-								</li>
-								<li>
-									<div class="card-text mt-2" style="font-size:20px; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; overflow: hidden;">
-										<span class="badge badge-info mr-3">口述史</span>
-										<span class="badge badge-info mr-3">历史</span>
-										<span class="badge badge-info mr-3">百岁老人</span>
-										<span class="badge badge-info mr-3">高彩云</span>
-										<span class="badge badge-info mr-3">生命史</span>
-									</div>
-								</li>
-								<li><a href="#" class="btn btn-primary mt-4">查看详情</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script type="text/javascript" src="result.js"></script>
+		<script src="jQuery/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="resultHTTP.js"></script>
 		<script src="bootstrap-4.3.1-dist/js/jquery-3.4.1.slim.min.js"></script>
 		<script src="bootstrap-4.3.1-dist/js/popper.min.js"></script>
 		<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>

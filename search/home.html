@@ -4,11 +4,46 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="referrer" content="no-referrer">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
-
+		<!-- <script type="text/javascript" src="home.js"></script> -->
 		<title>首页</title>
+
+		<style type="text/css">
+			#searchli li {
+				cursor: pointer;
+			}
+
+			#searchli li:hover {
+				background: #00b51d;
+				color: white;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			.show {
+				display: block;
+			}
+
+			.nameOmit {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
+
+			.summaryOmit {
+				text-indent: 2em;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- 导航栏 -->
@@ -32,9 +67,21 @@
 					<img class="align-self-center mx-auto" style="width:250px;" src="imgs/name.png">
 				</div>
 				<form class="form-inline row center-block w-50 mx-auto">
-					<input class="form-control mr-sm-2 mx-auto" style="width: 450px;" type="search" placeholder="请输入关键词" aria-label="Search">
-					<a href="result.html" target="_self" class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;" type="submit">搜索</a>
-					<!-- <button class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;" type="submit">搜索</button> -->
+					<input id="searchInput" class="form-control mr-sm-2 mx-auto" style="width: 450px; height: 50px;padding-left: 20px;"
+					 placeholder="请输入关键词" >
+					<!-- <a id="searchBtn" href="javascript:void(0);" class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;height: 50px;padding-top: 12px;"
+					 type="button" onclick="searchKey()">搜索</a> -->
+					<button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;height: 50px;" type="button" onclick="searchKey()">搜索</button>
+				
+					 <!-- <a href="result.html" target="_self">
+						<button class="btn btn-outline-success my-2 my-sm-0 mx-auto" style="width: 80px;height: 50px;" type="submit">搜索</button>
+						</a> -->
+
+						<ul id="searchli" class="list-group h-100 hidden" style="width: 450px; margin-left: 7px;">
+							<li class="list-group-item">推荐关键词1</li>
+							<li class="list-group-item">推荐关键词2</li>
+							<li class="list-group-item">推荐关键词3</li>
+						</ul>
 				</form>
 			</div>
 			<!-- 搜索推荐 -->
@@ -58,67 +105,68 @@
 							<div id="menu1" class="container tab-pane active">
 								<div class="row mt-3 justify-content-between">
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL1">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="book.html" target="_blank" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName1" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary1" class="card-text summaryOmit">简介</p>
+											<!-- <a href="book.html" target="_blank" class="btn btn-primary">查看详情</a> -->
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL2">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName2" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary2" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL3">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName3" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary3" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL4">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName4" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary4" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL5">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName5" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary5" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL6">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName6" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary6" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL7">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName7" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary7" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="recommendURL8">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="recommendName8" class="nameOmit">书名</h4>
+											<p align="left" id="recommendSummary8" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 								</div>
@@ -126,67 +174,68 @@
 							<div id="menu2" class="container tab-pane ">
 								<div class="row mt-3 justify-content-between">
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL1">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName1" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary1" class="card-text summaryOmit">简介</p>
+											<!-- <a href="book.html" target="_blank" class="btn btn-primary">查看详情</a> -->
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL2">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName2" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary2" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL3">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName3" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary3" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL4">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName4" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary4" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL5">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName5" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary5" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL6">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName6" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary6" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL7">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName7" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary7" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="latestURL8">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="latestName8" class="nameOmit">书名</h4>
+											<p align="left" id="latestSummary8" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 								</div>
@@ -194,67 +243,68 @@
 							<div id="menu3" class="container tab-pane fade">
 								<div class="row mt-3 justify-content-between">
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL1">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName1" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary1" class="card-text summaryOmit">简介</p>
+											<!-- <a href="book.html" target="_blank" class="btn btn-primary">查看详情</a> -->
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL2">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName2" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary2" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL3">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName3" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary3" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL4">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName4" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary4" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL5">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName5" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary5" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL6">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName6" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary6" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL7">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName7" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary7" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 									<div class="card m-2" style="width: 220px;">
-										<img src="imgs/book.jpg" class="card-img-top mx-auto mt-3" style="width: 180px; height: 250px;" alt="...">
+										<a id="hotURL8">
+										</a>
 										<div class="card-body">
-											<p class="card-text" style="text-indent:2em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow: hidden;">人活百年，看到的世界有何不同？
-												本书是由一位百岁老人口述自己经历、孙女加以记录编纂的故事集。 本书讲述了上个世纪动荡的历史中老人所属的江苏双沟镇高氏家族的兴盛衰亡，以及她自己挺过的风风雨雨。</p>
-											<a href="#" class="btn btn-primary">查看详情</a>
+											<h4 id="hotName8" class="nameOmit">书名</h4>
+											<p align="left" id="hotSummary8" class="card-text summaryOmit">简介</p>
 										</div>
 									</div>
 								</div>
@@ -267,7 +317,11 @@
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script type="text/javascript" src="home.js"></script>
+		<script src="jQuery/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="homeHTTP.js"></script>
 		<script src="bootstrap-4.3.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+		<!-- <script type="text/javascript" src="home2.js"></script> -->
 		<script src="bootstrap-4.3.1-dist/js/popper.min.js"></script>
 		<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 	</body>
