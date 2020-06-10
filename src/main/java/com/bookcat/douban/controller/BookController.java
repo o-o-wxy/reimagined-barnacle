@@ -19,9 +19,15 @@ public class BookController {
         this.esRepository = esRepository;
     }
 
+    //搜索
     @PostMapping("/book")
     List<Book> findByKey(@RequestParam("key") String key) {
         return esRepository.findBykey(key);
+    }
+    //基于summary的相似查询
+    @PostMapping("/morelike")
+    List<Book> moreLike(@RequestParam("id") int id){
+        return esRepository.moreLike(id);
     }
 
 //    @PostMapping("/find")

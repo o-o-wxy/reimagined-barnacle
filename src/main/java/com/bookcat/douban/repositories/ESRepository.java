@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ESRepository {
     List<Book> findBykey(String key);
+    List<Book> moreLike(int id);
 }
