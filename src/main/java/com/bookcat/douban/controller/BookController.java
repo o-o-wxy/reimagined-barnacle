@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class BookController {
@@ -28,6 +29,11 @@ public class BookController {
     @PostMapping("/morelike")
     List<Book> moreLike(@RequestParam("id") int id){
         return esRepository.moreLike(id);
+    }
+    //前缀查询
+    @PostMapping("/match")
+    Set<String> matchFront(@RequestParam("title") String key){
+        return esRepository.matchFront(key);
     }
 
 //    @PostMapping("/find")
